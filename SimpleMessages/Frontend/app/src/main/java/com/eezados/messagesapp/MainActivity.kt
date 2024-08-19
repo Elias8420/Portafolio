@@ -15,15 +15,16 @@ import com.eezados.messagesapp.ui.theme.MessagesAppTheme
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private lateinit var auth: FirebaseAuth
+    @Inject lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             MessagesAppTheme {
-                auth = Firebase.auth
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Text(text = auth.currentUser?.email.toString())
                 }

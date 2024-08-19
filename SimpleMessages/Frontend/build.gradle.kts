@@ -4,3 +4,10 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     alias(libs.plugins.google.gms.google.services) apply false
 }
+
+//Add this to make Hilt work
+buildscript {
+    dependencies {
+        classpath ("com.google.dagger:hilt-android-gradle-plugin:2.52")
+    }
+}
